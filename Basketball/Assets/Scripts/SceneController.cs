@@ -48,6 +48,7 @@ public class SceneController : MonoBehaviour
         _bestScoreLabel.gameObject.SetActive(false);
         _gameController.gameObject.SetActive(true);
         _gameController.currentGameState = GameController.GameState.start;
+        _gameController.delay = 2;
         _gameController.SetScore(0);
         _ringController.gameObject.SetActive(true);
         _scoreLabel.gameObject.SetActive(true);

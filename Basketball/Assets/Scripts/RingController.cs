@@ -36,17 +36,18 @@ public class RingController : MonoBehaviour
         if (collision.gameObject.CompareTag("Ball"))
         {
             _plusScoreAudio.Play();
-            // Destroy(collision.gameObject);
             StartCoroutine(Delete(collision.gameObject));
             _gameController.SumScore();
         }
     }
 
 
-    private IEnumerator Delete(GameObject collision)
+    private IEnumerator Delete(GameObject gameObject)
     {
-            yield return new WaitForSeconds(1);
-        Destroy(collision.gameObject);
+
+       
+            yield return new WaitForSeconds(2);
+        Destroy(gameObject);
        
     }
 

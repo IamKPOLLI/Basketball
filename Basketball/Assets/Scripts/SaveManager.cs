@@ -4,10 +4,10 @@ using UnityEngine;
 using System.IO;
 using UnityEngine.UI;
 
-public class SaveBase : MonoBehaviour
+public class SaveManager : MonoBehaviour
 {
-    [SerializeField] private Text _bestScorelabel1;
-    [SerializeField] private GameController gameController1;
+    [SerializeField] private Text _bestScorelabel;
+    [SerializeField] private GameController gameController;
     public int bestResult;
 
     
@@ -20,12 +20,12 @@ public class SaveBase : MonoBehaviour
     }
     public void CollectInfo()
     {
-        bestResult = gameController1.bestResult;
+        bestResult = gameController.bestResult;
     }
 
     public void SetInfo()
     {
-        gameController1.bestResult = bestResult;
+        gameController.bestResult = bestResult;
     }
 
 
@@ -34,16 +34,16 @@ public class SaveBase : MonoBehaviour
         CollectInfo();
         data = JsonUtility.ToJson(this);
         File.WriteAllText(Path.Combine(Application.persistentDataPath,"Save"),data);
-        _bestScorelabel1.text = "Best Score:" + bestResult;
+        _bestScorelabel.text = "Best Score:" + bestResult;
     }
 
     public void Load()
     {
-
+        //надо делать проверку на существование файла и если что создаать
         data = File.ReadAllText(Path.Combine(Application.persistentDataPath, "Save"));
         JsonUtility.FromJsonOverwrite(data, this);
         SetInfo();
-        _bestScorelabel1.text = "Best Score:" + bestResult;
+        _bestScorelabel.text = "Best Score:" + bestResult;
 
     }
 

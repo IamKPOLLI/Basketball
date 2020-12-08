@@ -1372,8 +1372,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d8f47f5391698345a4047dfb06fe7d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _bestScorelabel1: {fileID: 1048060711}
-  gameController1: {fileID: 1729425363}
+  _bestScorelabel: {fileID: 1048060711}
+  gameController: {fileID: 1729425363}
   bestResult: 0
 --- !u!82 &1091764965
 AudioSource:
