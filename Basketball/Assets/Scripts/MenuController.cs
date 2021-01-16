@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class MenuController : MonoBehaviour
 {
-
+    [SerializeField] private VolumeController _volumeController;
     [SerializeField] private AudioSource _ButtonClickAudion;
     // Start is called before the first frame update
     void Start()
@@ -22,7 +22,11 @@ public class MenuController : MonoBehaviour
 
     public void LoadPlayScene()
     {
-        _ButtonClickAudion.Play();
+        if (_volumeController.GetVolume())
+        {
+            _ButtonClickAudion.Play();
+        }
+        
        
     }
 }

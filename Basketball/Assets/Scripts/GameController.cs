@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class GameController : MonoBehaviour
 {
+   
     [SerializeField] private SaveManager _saveBase;
     [SerializeField] private SceneController _sceneController;
     [SerializeField] private BallController _ballPrefab;
@@ -33,18 +34,18 @@ public class GameController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Debug.Log(3);
+        
     }
 
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(2);
+       
 
         switch (currentGameState)
         {
             case GameState.start:
-                Debug.Log(1);
+                
                 _scoreLabel.text = "Score: " + _score;
                 StartCoroutine(StartBalls(delay));
                 currentGameState = GameState.work;
